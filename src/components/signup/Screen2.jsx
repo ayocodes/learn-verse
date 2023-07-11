@@ -1,14 +1,14 @@
 import React from "react";
 import Link from "next/link";
 
-const Screen2 = () => {
+const Screen2 = ({ screen, setScreen }) => {
   return (
     <>
       <div className=" flex flex-col gap-12">
         <div className=" flex gap-[60px]">
-          <Link href={"/signup"}>
+          <button onClick={() => setScreen("screen_1")}>
             <img src="/arrow-back.svg" alt="" />
-          </Link>
+          </button>
           <p className=" font-semibold text-lg absolute left-1/2 transform -translate-x-1/2">
             Create an account
           </p>
@@ -24,21 +24,24 @@ const Screen2 = () => {
           {[1, 1, 1, 1, 1].map((item, i) => (
             <input
               type="text"
-              className=" w-[45px] h-[60px] rounded-[15px] border border-[#F95DA0] outline-none px-3"
+              className=" w-[45px] h-[60px] rounded-[15px] border border-primary-green outline-none px-3"
             />
           ))}
         </div>
         <div className=" flex gap-5 flex-col items-center">
-          <button className="bg-gradient-to-l from-pink-500 to-indigo-600 h-[60px] rounded-full text-white font-semibold text-lg w-full">
+          <button
+            className=" bg-primaryButton h-[60px] rounded-full text-white font-semibold text-lg w-full"
+            onClick={() => setScreen("screen_3")}
+          >
             Verify
           </button>
-          <button className="border-b-2 border-transparent hover:border-[#F95DA0] px-3 transition duration-300 ease-in-out w-min">
+          <button className="border-b-2 border-transparent hover:border-primary-green px-3 transition duration-300 ease-in-out w-min">
             Resend
           </button>
         </div>
       </div>
-      <div className=" flex flex-col gap-7">
-        <button>Login to Account</button>
+      <div className=" flex justify-center">
+        <Link href={"/login"} className=" text-primary-green">Login</Link>
       </div>
     </>
   );

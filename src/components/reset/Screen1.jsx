@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-const Screen1 = () => {
+const Screen1 = ({setScreen}) => {
   return (
     <>
       <div className=" flex flex-col gap-12">
@@ -19,9 +19,9 @@ const Screen1 = () => {
         </div>
         <input
           type="text"
-          className="  h-[60px] rounded-full border border-[#343434] outline-none px-3"
+          className="  h-[60px] rounded-full border border-primary-green outline-none px-3"
         />
-        <button className="bg-gradient-to-l from-pink-500 to-indigo-600 h-[60px] rounded-full text-white font-semibold text-lg w-full">
+        <button className=" bg-primaryButton h-[60px] rounded-full text-white font-semibold text-lg w-full" onClick={() => setScreen("screen_2")}>
           Send reset email
         </button>
       </div>
