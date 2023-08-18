@@ -23,22 +23,22 @@ const page = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    toast.error("invalid credentials");
+    // toast.error("invalid credentials");
 
-    // axios
-    //   .post("https://unique.pythonanywhere.com/login/", {
-    //     username: username,
-    //     password: password,
-    //   })
-    //   .then((res) => {
-    //     // console.log(res.Object.response);
-    //     console.log("Successful");
-    //     router.push("/dashboard");
-    //   })
-    //   .catch((err) => {
-    //     setError(err.response.data);
-    //     console.log(err.response.data);
-    //   });
+    axios
+      .post("https://unique.pythonanywhere.com/login/", {
+        username: username,
+        password: password,
+      })
+      .then((res) => {
+        // console.log(res.Object.response);
+        console.log("Successful");
+        router.push("/dashboard");
+      })
+      .catch((err) => {
+        setError(err.response.data);
+        console.log(err.response.data);
+      });
   };
 
   return (
@@ -60,7 +60,7 @@ const page = () => {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 className=" w-full h-full bg-transparent outline-none px-3"
-                placeholder="Enter Username"
+                placeholder="Username"
               />
             </div>
             <div className=" border border-primary-green h-[60px] rounded-full p-2">
@@ -70,7 +70,7 @@ const page = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className=" w-full h-full bg-transparent outline-none px-3"
-                placeholder="Enter password"
+                placeholder="Password"
               />
             </div>
           </div>
